@@ -1,0 +1,11 @@
+endian big
+get FOLDER basename
+get FSIZE long
+get FILES long
+xmath OFFSET "FILES * 4 + 8"
+for i = 0 < FILES
+	get SIZE long
+	string NAME p "%s/%06d.png" FOLDER i
+	log NAME OFFSET SIZE
+	math OFFSET + SIZE
+next i
